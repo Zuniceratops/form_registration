@@ -1,0 +1,32 @@
+.container {
+    max-width: 400px;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+.first-pg {
+    width: 400px;
+    height: 600px;
+    background-image:url('https://i.pinimg.com/736x/b8/09/22/b80922f6ea2daaf36a6627378662803b--deck-of-cards-phone-wallpapers.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    box-shadow:0 0 8px grey;
+    border-radius: 10px 10px 200px 200px;
+}
+h1 {
+    margin-top: 95px;
+    display: flex;
+    justify-content: center;
+}
+p {
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+    text-align-last: center;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
