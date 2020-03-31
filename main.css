@@ -43,6 +43,7 @@ p {
     font-family: 'Lato', sans-serif;
 }
 .sign {
+    margin-top: 5px;
     background: white;
     display: flex;
     justify-content: space-around;
