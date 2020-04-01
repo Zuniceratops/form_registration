@@ -10,3 +10,18 @@ email.addEventListener("input", function (event) {
   });
 
 
+
+let password = document.getElementById('password');
+let password_reg = /^[a-zA-Z0-9]+$/; 
+
+password.addEventListener("input", function (event) {
+    const value = event.target.value;
+
+    if (value.length >= 6) {
+        event.target.setCustomValidity('');
+        return;
+    }
+
+    event.target.setCustomValidity('Пароль должен содержать более 6 символов');
+})
+
