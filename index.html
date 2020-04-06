@@ -18,12 +18,12 @@
         </div>
         <div class="sign">
             <div class="box-sign">
-                <div class="sign-one">sign
+                <div class="sign-one " id="sign-in">sign
                     <div class="in">in</div>
             </div>
             </div>
             <div class="box-sign">
-                <div class="sign-two">sign
+                <div class="sign-two" id="sign-up">sign
                     <div class="up">up</div>
                 </div>
             </div>
@@ -32,12 +32,15 @@
     
     <form>
         <div class="container">
-            <h1 class="sign-up">Sign Up</h1>
+            <h1 class="sign-up-text" id="title_sign_up">Sign Up</h1>
+            <h1 class="sign-up-text displaynone" id="title_sign_in">Sign In</h1>
             <div class="form-container">
-                <input type="text" placeholder="Username*" class="form-style" id="name">
-                <input type="email" placeholder="Email*" class="form-style" id="email">
-                <input type="password" placeholder="Password*" class="form-style" id="password">
-                <button>Sign Up</button>
+                <input type="text" placeholder="Username*" class="form-style" id="name" required pattern="[a-z]{2,12}$">
+                <input type="email" placeholder="Email*" class="form-style" id="email" required pattern="\S+@[a-z]+.[a-z]+">
+                <input type="password" placeholder="Password*" class="form-style" id="password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                <button id="button">Sign Up
+                    <div id="btn-sing-in" class="displaynone btn-sing-in">Sing In</div>
+                </button>
             </div>
             
         </div>
