@@ -51,6 +51,8 @@ let title_sign_up = document.getElementById('title_sign_up');
 let title_sign_in = document.getElementById('title_sign_in');
 let button = document.getElementById('button');
 let btnSingIn = document.getElementById('btn-sing-in');
+let push_reg = document.getElementById('push_reg');
+let loading = document.getElementById('loading');
 
 signin.addEventListener("click",function (event) {
   event.target.style.color = '#e9a1dd';
@@ -58,26 +60,37 @@ signin.addEventListener("click",function (event) {
   title_sign_up.classList.add('displaynone');
   title_sign_in.classList.remove('displaynone');
   email.classList.add('displaynone');
-  button.classList.add('button_title');
-  btnSingIn.classList.remove('displaynone')
-  // username.setAttribute('disabled');
-  // document.getElementById("myText").readOnly = true;
+
+
+  push_reg.classList.add('displaynone');
+  btnSingIn.classList.remove('displaynone');
 
 });
+
 signup.addEventListener("click", function (event) {
   event.target.style.color = '#748194';
   signup.classList.add('is-active');
 });
 
-// signin.addEventListener("click",function (event) {
-//   event.target.style.coslor = '748194';
-//   signin.classList.add('is-active');
-// });
-// signup.addEventListener("click", function (event) {
-//   event.target.style.color = '#e9a1dd';
-//   signup.classList.add('non-active');
-// });
+button.addEventListener("click", function (event) {
+  event.target.style.color = '#748194';
+  push_reg.classList.add('displaynone');
+  button.classList.add('button_title');
+
+  loading.classList.remove('displaynone');
+  username.setAttribute("disabled", "true");
+  email.setAttribute("disabled", "true");
+  password.setAttribute("disabled", "true");
+  
+  setTimeout( function (){
+    loading.classList.add('displaynone');
+    username.setAttribute("disabled", "false");
+    email.setAttribute("disabled", "false");
+    password.setAttribute("disabled", "false");
+    button.classList.remove('button_title');
+  }, 3000);
+ 
+});
 
 
-// title_sign_up.addEventListener('')
 

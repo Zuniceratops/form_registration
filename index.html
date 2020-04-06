@@ -38,7 +38,19 @@
                 <input type="text" placeholder="Username*" class="form-style" id="name" required pattern="[a-z]{2,12}$">
                 <input type="email" placeholder="Email*" class="form-style" id="email" required pattern="\S+@[a-z]+.[a-z]+">
                 <input type="password" placeholder="Password*" class="form-style" id="password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
-                <button id="button">Sign Up
+
+
+                <button id="button" type="button" class="button">
+                    <div id="push_reg" class="reg">Sign Up</div>
+                    <div id="loading" class="bubblingG displaynone">
+                        <span id="bubblingG_1">
+                        </span>
+                        <span id="bubblingG_2">
+                        </span>
+                        <span id="bubblingG_3">
+                        </span>
+                    </div>
+
                     <div id="btn-sing-in" class="displaynone btn-sing-in">Sing In</div>
                 </button>
             </div>

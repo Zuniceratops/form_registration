@@ -88,7 +88,7 @@ form {
 }
 .form-container {
     width: 400px;
-    height: 440px;
+    height: 485px;
 }
 .form-style {
     display: block;
@@ -108,7 +108,7 @@ form {
 }
 .sign-up-text {
     padding-top: 90px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
     color: #e9a1dd;
     font-size: 30px;
     font-family: 'Lato', sans-serif;
@@ -117,7 +117,7 @@ form {
     display: none;
 }
 
-button {
+.button {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -127,18 +127,26 @@ button {
     border-color: #e9a1dd;
     color: white;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 35px;
     font-size: 18px;
     font-family: 'Lato', sans-serif;
     border-radius: 10px;
 }
 .button_title {
-    color: transparent;
-    
+    background-color: rgb(175, 175, 175);
+    border:lightblue;
 }
+.button_check_mark {
+    content: "\2713";
+    color: green;
+  }
+/* .button_check_mark {
+    content: '\2714';
+    color: green;
+} */
 .btn-sing-in {
     position: relative;
-    bottom: 50px;
+    bottom: 25px;
     color: white;
     font-weight: bold;
     margin-top: 40px;
@@ -146,3 +154,74 @@ button {
     font-family: 'Lato', sans-serif;
 
 }
+
+
+
+
+
+
+#fountainTextG{
+	width:234px;
+	margin:auto;
+}
+
+.bubblingG {
+	text-align: center;
+	width:80px;
+	height:50px;
+	margin: auto;
+}
+
+.bubblingG span {
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	margin: 25px auto;
+	background: #574f4f;
+	border-radius: 50px;
+		-o-border-radius: 50px;
+		-ms-border-radius: 50px;
+		-webkit-border-radius: 50px;
+		-moz-border-radius: 50px;
+	animation: bubblingG 1.3s 2s;
+		-o-animation: bubblingG 1.3s infinite alternate;
+		-ms-animation: bubblingG 1.3s infinite alternate;
+		-webkit-animation: bubblingG 1.3s infinite alternate;
+		-moz-animation: bubblingG 1.3s infinite alternate;
+}
+
+#bubblingG_1 {
+	animation-delay: 0s;
+		-o-animation-delay: 0s;
+		-ms-animation-delay: 0s;
+		-webkit-animation-delay: 0s;
+		-moz-animation-delay: 0s;
+}
+
+#bubblingG_2 {
+	animation-delay: 0.39s;
+		-o-animation-delay: 0.39s;
+		-ms-animation-delay: 0.39s;
+		-webkit-animation-delay: 0.39s;
+		-moz-animation-delay: 0.39s;
+}
+
+
+
+@keyframes bubblingG {
+	0% {
+		width: 10px;
+		height: 10px;
+		background-color:#000000;
+		transform: translateY(0);
+	}
+
+	100% {
+		width: 24px;
+		height: 24px;
+		background-color:#FFFFFF;
+		transform: translateY(-21px);
+	}
+}
+
