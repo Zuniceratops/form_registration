@@ -44,8 +44,6 @@ password.addEventListener("input", function (event) {
 
 
 
-
-
 let signin = document.getElementById('sign-in');
 let signup = document.getElementById('sign-up');
 
@@ -58,11 +56,11 @@ let loading = document.getElementById('loading');
 let checkmark = document.getElementById('checkmark');
 
 
+signin.addEventListener("click", function (event) {
+  // event.target.style.color = '#e9a1dd';
+  signin.classList.add('is-active');
+  signup.classList.remove('is-active');
 
-
-signin.addEventListener("click",function (event) {
-  event.target.style.color = '#e9a1dd';
-  signin.classList.add('non-active');
   title_sign_up.classList.add('displaynone');
   title_sign_in.classList.remove('displaynone');
   email.classList.add('displaynone');
@@ -72,9 +70,19 @@ signin.addEventListener("click",function (event) {
 });
 
 signup.addEventListener("click", function (event) {
-  event.target.style.color = '#748194';
+  // event.target.style.color = '#748194';
   signup.classList.add('is-active');
+  signin.classList.remove('is-active');
+
+  title_sign_up.classList.remove('displaynone');
+  title_sign_in.classList.add('displaynone');
+  email.classList.remove('displaynone');
+  push_reg.classList.add('displaynone');
+  btnSingIn.classList.remove('displaynone');
 });
+
+
+
 
 button.addEventListener("click", function (event) {
   event.target.style.color = '#748194';
@@ -94,8 +102,6 @@ button.addEventListener("click", function (event) {
     password.setAttribute("disabled", "false");
     checkmark.classList.remove('displaynone');
   }, 3000);
-
-  
 }); 
 
 

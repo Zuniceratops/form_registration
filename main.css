@@ -54,32 +54,18 @@ p {
     text-transform: uppercase;
     border-radius: 10px 10px 10px 10px;
 }
-.box-sign {
+
+.btn-sign {
     display: flex;
     justify-content: center;
     width: 200px;
-}
-.sign-one {
-    max-width: 200px;
-    margin-left: 60px;
     color: #748194;
     font-family: 'Lato', sans-serif;
-    border-right: 1px solid rgb(177, 175, 165)48194;
-    width: 200px;
-    box-shadow: 21px 3px 20px -9px rgb(177, 175, 165);
+    cursor: pointer;
 }
-.sign-two {
+.btn-sign.is-active {
     color: #e9a1dd;
-    max-width: 200px;
-    font-family: 'Lato', sans-serif;
-}
-.is-active {
-    font-size: 25px;
-    color: #e9a1dd;
-}
-.non-active {
-    font-size: 30px;
-    color: #748194;
+    box-shadow: 1px 3px 20px 0 rgb(177, 175, 165);
 }
 
 /* Form */
