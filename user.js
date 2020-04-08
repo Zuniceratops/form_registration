@@ -57,7 +57,6 @@ let checkmark = document.getElementById('checkmark');
 
 
 signin.addEventListener("click", function (event) {
-  // event.target.style.color = '#e9a1dd';
   signin.classList.add('is-active');
   signup.classList.remove('is-active');
 
@@ -70,7 +69,6 @@ signin.addEventListener("click", function (event) {
 });
 
 signup.addEventListener("click", function (event) {
-  // event.target.style.color = '#748194';
   signup.classList.add('is-active');
   signin.classList.remove('is-active');
 
@@ -89,31 +87,37 @@ button.addEventListener("click", function (event) {
   push_reg.classList.add('displaynone');
   button.classList.add('button_title');
   loading.classList.remove('displaynone');
+
   username.setAttribute("disabled", "true");
   email.setAttribute("disabled", "true");
   password.setAttribute("disabled", "true");
+
   checkmark.classList.add('displaynone');
   btnSingIn.classList.add('displaynone');
   
   setTimeout( function (){
     loading.classList.add('displaynone');
-    username.setAttribute("disabled", "false");
-    email.setAttribute("disabled", "false");
-    password.setAttribute("disabled", "false");
     checkmark.classList.remove('displaynone');
+    
+    username.value = '';
+    email.value = '';
+    password.value = '';
+
+    username.disabled = false;
+    email.disabled = false;
+    password.disabled = false;
+
+    push_reg.classList.add('displaynone');
+    button.classList.add('button_title');
   }, 3000);
+
+ 
+  setTimeout( function (){
+    checkmark.classList.add('displaynone');
+    button.value = '';
+    push_reg.classList.remove('displaynone');
+    push_reg.classList.add('button_title_reg');
+    button.classList.remove('button_title');
+  }, 5000);
 }); 
-
-
-// signin.addEventListener("click",function (event) {
-//   event.target.style.coslor = '748194';
-//   signin.classList.add('is-active');
-// });
-// signup.addEventListener("click", function (event) {
-//   event.target.style.color = '#e9a1dd';
-//   signup.classList.add('non-active');
-// });
-
-
-// title_sign_up.addEventListener('')
 
