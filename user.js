@@ -1,3 +1,4 @@
+//validation form
 let username = document.getElementById('name');
 
 username.addEventListener("input", function (event) {
@@ -31,24 +32,24 @@ email.addEventListener("input", function (event) {
       return regEx.test(String(value).toLowerCase());
 });
 
-  
-
 let password = document.getElementById('password');
 
 password.addEventListener("input", function (event) {
     const value = event.target.value;
 
     if (value.length >= 6) {
-        event.target.setCustomValidity('');
-        console.log('!')
-        return;
+      event.target.setCustomValidity('');
+      event.target.style.border = "2px solid green";
+      let regEx = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+      return regEx.test(String(value).toLowerCase());
     }
-
-    event.target.setCustomValidity('Пароль должен быть более 6 символов и не должен содержать символы');
-    console.log('2')
+      event.target.style.border = "2px solid red";
+      event.target.setCustomValidity('Пароль должен быть более 6 символов и не должен содержать символы');
+      console.log('2')
 })
 
 
+// action
 
 let signin = document.getElementById('sign-in');
 let signup = document.getElementById('sign-up');
