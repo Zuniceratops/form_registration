@@ -3,26 +3,32 @@ let username = document.getElementById('name');
 username.addEventListener("input", function (event) {
     const value = event.target.value;
 
-    if (value.length >= 2) {
+    if (value.length >= 2 && value.length <= 12) {
       event.target.setCustomValidity('');
-      console.log('!')
-      return;
+      let regEx = /[a-z]{0,12}$/i;
+      event.target.style.border = "2px solid green";
+      return regEx.test(String(value).toLowerCase());;
     }
-    event.target.setCustomValidity('Имя должно содержать нижний регистр и быть не менее 2 символов');
-    console.log('2')
+      event.target.style.border = "2px solid red";
+      event.target.setCustomValidity('Имя должно содержать нижний регистр и быть не менее 2 символов');
 })
 
 
 let email = document.getElementById('email');
 
 email.addEventListener("input", function (event) {
+  const value = event.target.value;
+
     if (email.validity.typeMismatch) {
-      email.setCustomValidity('Проверте email');
+      event.target.style.border = "2px solid red";
+      event.target.setCustomValidity('Проверте email');
       console.log('2')
-    } else {
-      email.setCustomValidity('');
-      console.log('!')
-    }
+      return;
+    } 
+      event.target.setCustomValidity('');
+      event.target.style.border = "2px solid green";
+      let regEx = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      return regEx.test(String(value).toLowerCase());
 });
 
   
