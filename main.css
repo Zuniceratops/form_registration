@@ -67,6 +67,10 @@ p {
     color: #e9a1dd;
     box-shadow: 1px 3px 20px 0 rgb(177, 175, 165);
 }
+.n-active {
+  color: #748194;
+  box-shadow: none;
+}
 
 /* Form */
 form {
@@ -132,7 +136,14 @@ form {
     font-size: 18px;
     font-family: 'Lato', sans-serif;
 }
-
+.successful_reg {
+  display: flex;
+  justify-content: center;
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
 
 
 
@@ -270,3 +281,20 @@ form {
   }
 
   
+  /* pulsate signin */
+  .pulsate {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.5;
+    }
+}

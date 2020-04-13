@@ -61,13 +61,14 @@ let btnSingIn = document.getElementById('btn-sing-in');
 let push_reg = document.getElementById('push_reg');
 let loading = document.getElementById('loading');
 let checkmark = document.getElementById('checkmark');
+let successful_reg = document.getElementById('successful_reg');
 
 
 signin.addEventListener("click", function (event) {
   signin.classList.add('is-active');
   signup.classList.remove('is-active');
 
-  title_sign_up.classList.add('displaynone');
+  title_sign_up.classList.add('displaynone');``
   title_sign_in.classList.remove('displaynone');
   email.classList.add('displaynone');
   push_reg.classList.add('displaynone');
@@ -102,6 +103,7 @@ button.addEventListener("click", function (event) {
   checkmark.classList.add('displaynone');
   btnSingIn.classList.add('displaynone');
   
+  
   setTimeout( function (){
     loading.classList.add('displaynone');
     checkmark.classList.remove('displaynone');
@@ -116,6 +118,7 @@ button.addEventListener("click", function (event) {
 
     push_reg.classList.add('displaynone');
     button.classList.add('button_title');
+
   }, 3000);
 
  
@@ -125,6 +128,20 @@ button.addEventListener("click", function (event) {
     push_reg.classList.remove('displaynone');
     push_reg.classList.add('button_title_reg');
     button.classList.remove('button_title');
+
+    username.style.border = "2px solid transparent";
+    email.style.border = "2px solid transparent";
+    password.style.border = "2px solid transparent";
   }, 5000);
+
+  setTimeout( function (){
+    username.classList.add('displaynone');
+    email.classList.add('displaynone');
+    password.classList.add('displaynone');
+    signin.classList.add('pulsate');
+    successful_reg.classList.add('successful_reg');
+
+    button.classList.add('displaynone')
+  },6000)
 }); 
 
