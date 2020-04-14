@@ -74,6 +74,14 @@ signin.addEventListener("click", function (event) {
   push_reg.classList.add('displaynone');
   btnSingIn.classList.remove('displaynone');
 
+  successful_reg.classList.remove('successful_reg');
+  username.classList.remove('displaynone');
+  password.classList.remove('displaynone');
+
+  button.classList.remove('hide');
+  btnSingIn.classList.remove('displaynone');
+  
+
 });
 
 signup.addEventListener("click", function (event) {
@@ -141,7 +149,20 @@ button.addEventListener("click", function (event) {
     signin.classList.add('pulsate');
     successful_reg.classList.add('successful_reg');
 
-    button.classList.add('displaynone')
+    button.className = "hide"; 
+    button.classList.add('displaynone');
+    loading.className = "hide"; 
+    checkmark.className = "hide"; 
+
+    push_reg.classList.add('displaynone')
   },6000)
+ 
+
+  setTimeout( function (){
+    signin.classList.remove('pulsate');
+  }, 12000)
 }); 
 
+// title_sign_in.addEventListener("click", function (event) {
+
+// });

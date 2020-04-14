@@ -137,6 +137,7 @@ form {
     font-family: 'Lato', sans-serif;
 }
 .successful_reg {
+  margin-top: 150px;
   display: flex;
   justify-content: center;
   color: green;
@@ -243,6 +244,7 @@ form {
     -webkit-transform-origin: 50% 50%;
   }
 
+
   
   @-webkit-keyframes dash {
    0% {
@@ -285,11 +287,12 @@ form {
   .pulsate {
     -webkit-animation: pulsate 2s ease-out;
     -webkit-animation-iteration-count: infinite; 
+    color: yellow;
     opacity: 0.5;
 }
 @-webkit-keyframes pulsate {
     0% { 
-        opacity: 0.5;
+        opacity: 0.1;
     }
     50% { 
         opacity: 1.0;
