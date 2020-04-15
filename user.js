@@ -63,10 +63,13 @@ let loading = document.getElementById('loading');
 let checkmark = document.getElementById('checkmark');
 let successful_reg = document.getElementById('successful_reg');
 
+let signinButtton = document.getElementById('signin_buttton');
+let signupButtton = document.getElementById('signup_buttton');
+
 
 signin.addEventListener("click", function (event) {
-  signin.classList.add('is-active');
-  signup.classList.remove('is-active');
+  signinButtton.classList.add('is-active');
+  signupButtton.classList.remove('is-active');
 
   title_sign_up.classList.add('displaynone');``
   title_sign_in.classList.remove('displaynone');
@@ -78,15 +81,16 @@ signin.addEventListener("click", function (event) {
   username.classList.remove('displaynone');
   password.classList.remove('displaynone');
 
-  button.classList.remove('hide');
+  button.classList = 'show';
+  button.classList.add('button');
   btnSingIn.classList.remove('displaynone');
-  
 
 });
+//
 
 signup.addEventListener("click", function (event) {
-  signup.classList.add('is-active');
-  signin.classList.remove('is-active');
+  signupButtton.classList.add('is-active');
+  signinButtton.classList.remove('is-active');
 
   title_sign_up.classList.remove('displaynone');
   title_sign_in.classList.add('displaynone');
@@ -103,6 +107,7 @@ button.addEventListener("click", function (event) {
   push_reg.classList.add('displaynone');
   button.classList.add('button_title');
   loading.classList.remove('displaynone');
+  
 
   username.setAttribute("disabled", "true");
   email.setAttribute("disabled", "true");
@@ -110,7 +115,9 @@ button.addEventListener("click", function (event) {
 
   checkmark.classList.add('displaynone');
   btnSingIn.classList.add('displaynone');
-  
+
+
+  signinButtton.setAttribute("disabled", "true");
   
   setTimeout( function (){
     loading.classList.add('displaynone');
@@ -140,29 +147,27 @@ button.addEventListener("click", function (event) {
     username.style.border = "2px solid transparent";
     email.style.border = "2px solid transparent";
     password.style.border = "2px solid transparent";
+
   }, 5000);
 
   setTimeout( function (){
     username.classList.add('displaynone');
     email.classList.add('displaynone');
     password.classList.add('displaynone');
-    signin.classList.add('pulsate');
+    signinButtton.classList.add('pulsate');
     successful_reg.classList.add('successful_reg');
 
-    button.className = "hide"; 
+    button.className = "hide";
     button.classList.add('displaynone');
-    loading.className = "hide"; 
-    checkmark.className = "hide"; 
+    loading.className = "hide";
+    checkmark.className = "hide";
 
     push_reg.classList.add('displaynone')
+    signinButtton.disabled = false;
   },6000)
  
 
   setTimeout( function (){
-    signin.classList.remove('pulsate');
+    signinButtton.classList.remove('pulsate');
   }, 12000)
 }); 
-
-// title_sign_in.addEventListener("click", function (event) {
-
-// });
