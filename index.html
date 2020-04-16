@@ -44,6 +44,13 @@
         <div class="container">
             <h1 class="sign-up-text" id="title_sign_up">Sign Up</h1>
             <h1 class="sign-up-text displaynone" id="title_sign_in">Sign In</h1>
+            <div class="title-error displaynone" id="title-error">
+                <p>
+                    An error occurred while registering
+                    <br>
+                    Check your details
+                </p>
+            </div>
             <div class="form-container">
                 <input type="text" placeholder="Username*" class="form-style" id="name">
                 <input type="email" placeholder="Email*" class="form-style" id="email">
@@ -52,7 +59,7 @@
                     <p>Registration completed successfully</p>
                 </div>
 
-                <button id="button" type="button" class="button">
+                <button id="button" type="button" class="button btn-sing-up">
                     <div id="push_reg" class="reg">Sign Up</div>
                     <div id="loading" class="bubblingG displaynone">
                         <span id="bubblingG_1">

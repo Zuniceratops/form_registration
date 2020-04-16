@@ -68,6 +68,7 @@ p {
     color: #e9a1dd;
     box-shadow: 1px 3px 20px 0 rgb(177, 175, 165);
     background: white;
+    font-size: 24px;
 }
 .n-active {
   color: #748194;
@@ -133,10 +134,10 @@ form {
     color: white;
 }
 .btn-sing-in {
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: 'Lato', sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
 }
 .successful_reg {
   margin-top: 150px;
@@ -146,6 +147,12 @@ form {
   font-size: 18px;
   font-weight: bold;
   font-family: 'Lato', sans-serif;
+}
+.title-error {
+  margin-top: -50px;
+  color: tomato;
+  font-size: 15px;
+  font-weight: initial;
 }
 
 
@@ -228,7 +235,7 @@ form {
   }
   
   .checkmark {
-    width: 50px;
+    max-width: 50px;
     margin: 0 auto;
   }
   

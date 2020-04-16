@@ -1,3 +1,8 @@
+const successAuth = () => {
+  return Math.round(Math.random()) === 1;
+}
+
+
 //validation form
 let username = document.getElementById('name');
 
@@ -47,7 +52,8 @@ password.addEventListener("input", function (event) {
       event.target.setCustomValidity('Пароль должен быть более 6 символов и не должен содержать символы');
       console.log('2')
 })
-
+// random
+let random = Math.random() >= 0.5;
 
 // action
 
@@ -58,6 +64,7 @@ let title_sign_up = document.getElementById('title_sign_up');
 let title_sign_in = document.getElementById('title_sign_in');
 let button = document.getElementById('button');
 let btnSingIn = document.getElementById('btn-sing-in');
+let btnSingUp = document.getElementById('btn-sing-up');
 let push_reg = document.getElementById('push_reg');
 let loading = document.getElementById('loading');
 let checkmark = document.getElementById('checkmark');
@@ -65,6 +72,8 @@ let successful_reg = document.getElementById('successful_reg');
 
 let signinButtton = document.getElementById('signin_buttton');
 let signupButtton = document.getElementById('signup_buttton');
+
+let titleError = document.getElementById('title-error');
 
 
 signin.addEventListener("click", function (event) {
@@ -83,8 +92,7 @@ signin.addEventListener("click", function (event) {
 
   button.classList = 'show';
   button.classList.add('button');
-  btnSingIn.classList.remove('displaynone');
-
+  checkmark.classList.add('displaynone');
 });
 //
 
@@ -106,20 +114,31 @@ button.addEventListener("click", function (event) {
   event.target.style.color = '#748194';
   push_reg.classList.add('displaynone');
   button.classList.add('button_title');
-  loading.classList.remove('displaynone');
-  
+  loading.classList.remove('displaynone')
 
   username.setAttribute("disabled", "true");
   email.setAttribute("disabled", "true");
   password.setAttribute("disabled", "true");
+  signinButtton.setAttribute("disabled", "true");
 
   checkmark.classList.add('displaynone');
   btnSingIn.classList.add('displaynone');
 
 
-  signinButtton.setAttribute("disabled", "true");
-  
   setTimeout( function (){
+    if (!successAuth()) {
+      titleError.classList.remove('displaynone');
+      username.style.border = "2px solid red";
+      email.style.border = "2px solid red";
+      password.style.border = "2px solid red";
+
+      
+      console.log('failed!');
+      return;
+    }
+  
+    console.log('success!');
+
     loading.classList.add('displaynone');
     checkmark.classList.remove('displaynone');
     
@@ -134,9 +153,9 @@ button.addEventListener("click", function (event) {
     push_reg.classList.add('displaynone');
     button.classList.add('button_title');
 
+
   }, 3000);
 
- 
   setTimeout( function (){
     checkmark.classList.add('displaynone');
     button.value = '';
@@ -147,7 +166,6 @@ button.addEventListener("click", function (event) {
     username.style.border = "2px solid transparent";
     email.style.border = "2px solid transparent";
     password.style.border = "2px solid transparent";
-
   }, 5000);
 
   setTimeout( function (){
@@ -162,12 +180,13 @@ button.addEventListener("click", function (event) {
     loading.className = "hide";
     checkmark.className = "hide";
 
-    push_reg.classList.add('displaynone')
-    signinButtton.disabled = false;
-  },6000)
+    push_reg.classList.add('displaynone');
+    btnSingIn.classList.add('displaynone');
+    btnSingUp.classList.remove('displaynone');
+  }, 6000)
  
 
   setTimeout( function (){
     signinButtton.classList.remove('pulsate');
   }, 12000)
-}); 
+});
