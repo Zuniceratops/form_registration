@@ -28,7 +28,6 @@ email.addEventListener("input", function (event) {
     if (email.validity.typeMismatch) {
       event.target.style.border = "2px solid red";
       event.target.setCustomValidity('Проверте email');
-      console.log('2')
       return;
     } 
       event.target.setCustomValidity('');
@@ -50,7 +49,6 @@ password.addEventListener("input", function (event) {
     }
       event.target.style.border = "2px solid red";
       event.target.setCustomValidity('Пароль должен быть более 6 символов и не должен содержать символы');
-      console.log('2')
 })
 // random
 let random = Math.random() >= 0.5;
@@ -74,6 +72,7 @@ let signinButtton = document.getElementById('signin_buttton');
 let signupButtton = document.getElementById('signup_buttton');
 
 let titleError = document.getElementById('title-error');
+let signinError = document.getElementById('error-signin');
 
 
 signin.addEventListener("click", function (event) {
@@ -93,7 +92,41 @@ signin.addEventListener("click", function (event) {
   button.classList = 'show';
   button.classList.add('button');
   checkmark.classList.add('displaynone');
+
+  username.value = '';
+  email.value = '';
+  password.value = '';
+
+  button.addEventListener("click", function (event) {
+    if (!successAuth()) {
+      titleError.classList.add('displaynone');
+      signinError.classList.remove('displaynone');
+      username.style.border = "2px solid red";
+      password.style.border = "2px solid red";
+  
+      username.disabled = false;
+      password.disabled = false;
+      
+      push_reg.classList.remove('displaynone');
+      push_reg.classList.add('button_title_reg');
+      button.classList.add('button_title');
+      loading.className = "hide";
+      
+      console.log('NOO!');
+      return;
+    } 
+      titleError.classList.add('displaynone');
+      username.classList.add('displaynone');
+      password.classList.add('displaynone');
+
+      button.className = "hide";
+      button.classList.add('displaynone');
+      loading.className = "hide";
+      checkmark.className = "hide";
+    }, 4000)
 });
+
+
 //
 
 signup.addEventListener("click", function (event) {
@@ -105,6 +138,7 @@ signup.addEventListener("click", function (event) {
   email.classList.remove('displaynone');
   push_reg.classList.add('displaynone');
   btnSingIn.classList.remove('displaynone');
+
 });
 
 
@@ -119,74 +153,86 @@ button.addEventListener("click", function (event) {
   username.setAttribute("disabled", "true");
   email.setAttribute("disabled", "true");
   password.setAttribute("disabled", "true");
-  signinButtton.setAttribute("disabled", "true");
+  
+  signinButtton.classList.remove("is-active"); // не работает, срабатівает переход на стр Вход
+  signinButtton.classList.add('n-active');
 
   checkmark.classList.add('displaynone');
   btnSingIn.classList.add('displaynone');
+});
 
-
+// error reg
   setTimeout( function (){
     if (!successAuth()) {
+      signinButtton.setAttribute("disabled", "true");
       titleError.classList.remove('displaynone');
       username.style.border = "2px solid red";
       email.style.border = "2px solid red";
       password.style.border = "2px solid red";
 
+      username.disabled = false;
+      email.disabled = false;
+      password.disabled = false;
       
-      console.log('failed!');
+      push_reg.classList.remove('displaynone');
+      push_reg.classList.remove('button_title_reg');
+      button.classList.remove('button_title');
+      loading.className = "hide";
+
+      console.log('NOO!');
       return;
-    }
-  
-    console.log('success!');
+    } 
+      // successful reg
+      console.log('success!');
 
-    loading.classList.add('displaynone');
-    checkmark.classList.remove('displaynone');
+      loading.classList.add('displaynone');
+      checkmark.classList.remove('displaynone');
+      
+      username.value = '';
+      email.value = '';
+      password.value = '';
+
+      username.disabled = false;
+      email.disabled = false;
+      password.disabled = false;
+
+      push_reg.classList.add('displaynone');
+      button.classList.add('button_title');
     
-    username.value = '';
-    email.value = '';
-    password.value = '';
+    
+    setTimeout( function (){
+      checkmark.classList.add('displaynone');
+      button.value = '';
+      push_reg.classList.remove('displaynone');
+      push_reg.classList.add('button_title_reg');
+      button.classList.remove('button_title');
 
-    username.disabled = false;
-    email.disabled = false;
-    password.disabled = false;
+      username.style.border = "2px solid transparent";
+      email.style.border = "2px solid transparent";
+      password.style.border = "2px solid transparent";
+    }, 5000);
 
-    push_reg.classList.add('displaynone');
-    button.classList.add('button_title');
+    setTimeout( function (){
+      username.classList.add('displaynone');
+      email.classList.add('displaynone');
+      password.classList.add('displaynone');
+      signinButtton.classList.add('pulsate');
+      successful_reg.classList.add('successful_reg');
+
+      button.className = "hide";
+      button.classList.add('displaynone');
+      loading.className = "hide";
+      checkmark.className = "hide";
+
+      push_reg.classList.add('displaynone');
+      btnSingIn.classList.add('displaynone');
+
+      // btnSingUp.classList.remove('displaynone');
+    }, 6000)
 
 
-  }, 3000);
-
-  setTimeout( function (){
-    checkmark.classList.add('displaynone');
-    button.value = '';
-    push_reg.classList.remove('displaynone');
-    push_reg.classList.add('button_title_reg');
-    button.classList.remove('button_title');
-
-    username.style.border = "2px solid transparent";
-    email.style.border = "2px solid transparent";
-    password.style.border = "2px solid transparent";
-  }, 5000);
-
-  setTimeout( function (){
-    username.classList.add('displaynone');
-    email.classList.add('displaynone');
-    password.classList.add('displaynone');
-    signinButtton.classList.add('pulsate');
-    successful_reg.classList.add('successful_reg');
-
-    button.className = "hide";
-    button.classList.add('displaynone');
-    loading.className = "hide";
-    checkmark.className = "hide";
-
-    push_reg.classList.add('displaynone');
-    btnSingIn.classList.add('displaynone');
-    btnSingUp.classList.remove('displaynone');
-  }, 6000)
- 
-
-  setTimeout( function (){
-    signinButtton.classList.remove('pulsate');
-  }, 12000)
-});
+    setTimeout( function (){
+      signinButtton.classList.remove('pulsate');
+      signinButtton.classList.remove('n-active');
+    }, 12000)
+  }, 13000);
